@@ -8,10 +8,8 @@ using System.Windows;
 
 namespace SESSIONWPF
 {
-    internal class ValidationChecker
+    public class ValidationChecker
     {
-
-
 
         /// <summary>
         /// Требования к паролю в сессии 1
@@ -19,24 +17,29 @@ namespace SESSIONWPF
         /// </summary>
         /// <param name="loginUser"></param>
         /// <param name="passwordUser"></param>
-        public void PasswordStringValidation(string loginUser, string passwordUser)
+        public bool PasswordStringValidation(string loginUser, string passwordUser)
         {
             if (passwordUser.Contains(loginUser))
             {
                 MessageBox.Show("Пароль не должен состоять из логина!");
+                return false;
             }
             else if (passwordUser.Length > 4 && passwordUser.Length < 21)
             {
                 MessageBox.Show("Пароль должен содержать от 5 до 20 символов!");
+                return false;
             }
             else if (passwordUser.Any(symbol => Char.IsUpper(symbol)))
             {
                 MessageBox.Show("Пароль должен содержать буквы верхнего регистра!");
+                return false;
             }
             else if (passwordUser.Any(symbol => Char.IsLower(symbol)))
             {
                 MessageBox.Show("Пароль должен содержать буквы нижнего регистра!");
+                return false;
             }
+            return true;
         }
 
         /// <summary>
@@ -46,7 +49,7 @@ namespace SESSIONWPF
         /// <param name="loginUser">Поле логин UI</param>
         /// <param name="passwordBox">Поле пароля UI</param>
         /// <param name="count">Статическая переменная</param>
-        public void CheckTRY(TextBox loginUser, PasswordBox passwordBox, Button sumbit, int count)
+        public bool CheckTRY(TextBox loginUser, PasswordBox passwordBox, Button sumbit, int count)
         {
             if (loginUser.Text.Trim() != passwordBox.Password.Trim())
             {
@@ -59,12 +62,14 @@ namespace SESSIONWPF
                     count = 0;
                 }
                 MessageBox.Show("Неверный логин или пароль!");
+                return false;
             }
             else if (string.IsNullOrEmpty(loginUser.Text.Trim()) || string.IsNullOrEmpty(passwordBox.Password.Trim()))
             {
                 MessageBox.Show("Все поля должны быть заполнены!");
+                return false;
             }
-
+            return true;
         }
     }
 }

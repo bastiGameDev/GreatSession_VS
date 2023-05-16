@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace SESSIONWPF
 {
@@ -13,7 +14,12 @@ namespace SESSIONWPF
     /// </summary>
     public partial class App : Application
     {
-        public static string ConnectionString = @"Data Source = DESKTOP-GSTE41V\MPTSERVER; Initial Catalog = Confectionery; Persist Security Info = true; User ID = sa; Password = '123';";
+        private static string ServerName = "DESKTOP-GSTE41V\\MPTSERVER";
+        private static string login = "sa";
+        private static string password = "123";
+        public static string ConnectionString = $@"Data Source = {ServerName}; Initial Catalog = Confectionery; Persist Security Info = true; User ID = {login}; Password = '{password}';";
+
+        public static string loginPeson;
 
         
     }

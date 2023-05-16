@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -61,15 +62,6 @@
     <Compile Include="Customer.xaml.cs">
       <DependentUpon>Customer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Director.xaml.cs">
-      <DependentUpon>Director.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Master.xaml.cs">
-      <DependentUpon>Master.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="PurchasesManager.xaml.cs">
-      <DependentUpon>PurchasesManager.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Query.cs" />
     <Compile Include="Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>
@@ -80,10 +72,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Customer.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Director.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -100,14 +88,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Master.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="PurchasesManager.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Registration.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

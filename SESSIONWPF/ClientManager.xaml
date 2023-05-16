@@ -6,7 +6,56 @@
         xmlns:local="clr-namespace:SESSIONWPF"
         mc:Ignorable="d"
         Title="ClientManager" Height="450" Width="800">
+    <Window.Resources>
+        <Style x:Key="Tab" TargetType="TextBlock">
+        </Style>
+        <Style x:Key="Data" TargetType="DataGrid">
+            <Setter Property="Margin" Value="20 10"/>
+        </Style>
+    </Window.Resources>
     <Grid>
-        
+        <TabControl>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel>
+                        <TextBlock Style="{DynamicResource Tab}"> Создания заказа</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <DataGrid x:Name="dg_OrderManager" Loaded="dg_OrderManager_Loaded" HeadersVisibility="None" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="3" Style="{DynamicResource Data}"/>
+                        <Label Grid.Column="0" Grid.Row="2" Content="Наименование"/>
+                        <TextBox x:Name="tb_NameOrder" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2"/>
+                        <Label Grid.Column="0" Grid.Row="3" Content="Клиент"/>
+                        <ComboBox Name="cb_client" Loaded="cb_client_Loaded" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3"/>
+                        <Label Grid.Column="0" Grid.Row="5" Content="Картинка"/>
+                        <Label x:Name="StatusFile" Grid.Column="1" Grid.Row="5" Content="Не загружена"/>
+                        <Button x:Name="UploadImage" Click="UploadImage_Click" Grid.Column="3" Grid.Row="5" Content="Загрузить" />
+                        <Label Grid.Column="0" Grid.Row="4" Content="Описание"/>
+                        <TextBox x:Name="tb_DescriptionOrder" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="4"/>
+                        <Label Grid.Column="0" Grid.Row="6" Content="Продукт"/>
+                        <ComboBox Name="cb_Products" Loaded="cb_Products_Loaded" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2"/>
+                        <Button x:Name="InsertOrder" Grid.Column="0" Grid.Row="7" Content="Добавить" Click="InsertOrder_Click"/>
+                        <Button Grid.Column="1" Grid.Row="7" Content="Выход" Click="UpdateOrder_Click"/>
+                        <Button x:Name="DeleteOrder" Grid.Column="2" Grid.Row="7" Content="Удалить" Click="DeleteOrder_Click"/>
+                    </Grid>
+                </TabItem.Content>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

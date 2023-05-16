@@ -28,6 +28,9 @@ namespace SESSIONWPF
         public MainWindow()
         {
             InitializeComponent();
+
+            tb_login.Text = "loginDEchx2018";
+            tb_password.Password = "S5c&fX";
         }
 
         public void buttonBlock(Button button)
@@ -65,31 +68,34 @@ namespace SESSIONWPF
                     string role = dataBaseClass.resultTable.Rows[0][2].ToString();
                     if (role == "Заказчик")
                     {
+                        Application.Current.Properties["UserName"] = tb_login.Text;
                         new Customer().Show();
                         this.Close();
                     }
                     else if (role == "Менеджер по работе с клиентами")
                     {
+                        Application.Current.Properties["UserName"] = tb_login.Text;
                         new ClientManager().Show();
                         this.Close();
                     }
                     else if (role == "Менеджер по закупкам")
                     {
-
+                        Application.Current.Properties["UserName"] = tb_login.Text;
                         this.Close();
                     }
                     else if (role == "Мастер")
                     {
-
+                        Application.Current.Properties["UserName"] = tb_login.Text;
                         this.Close();
                     }
                     else if (role == "Директор")
                     {
-
+                        Application.Current.Properties["UserName"] = tb_login.Text;
                         this.Close();
                     }
                     else
                     {
+                        MessageBox.Show("Ваша роль не определена!");
                         CountTry++;
                     }
                 }
@@ -101,7 +107,7 @@ namespace SESSIONWPF
             }
             catch
             {
-                MessageBox.Show("Неверное введён логин или пароль!");
+                MessageBox.Show("Ошибка сервера!");
                 buttonBlock((sender as Button));
                 tb_login.Focus();
             }
@@ -115,8 +121,8 @@ namespace SESSIONWPF
 
         private void tb_Registration_Click(object sender, RoutedEventArgs e)
         {
-            new Registration().Show();
-            this.Close();
+            Registration registration = new Registration();
+            registration.Show();
         }
     }
 }
